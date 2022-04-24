@@ -1,0 +1,44 @@
+[
+  {
+    "name": "acerca-de",
+    "path": "/acerca-de",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\acerca-de.vue",
+    "chunkName": "pages/acerca-de",
+    "_name": "_0be03c74"
+  },
+  {
+    "name": "borrar",
+    "path": "/borrar",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\borrar.vue",
+    "chunkName": "pages/borrar",
+    "_name": "_70c2ae8a"
+  },
+  {
+    "name": "lista",
+    "path": "/lista",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\lista.vue",
+    "chunkName": "pages/lista",
+    "_name": "_57f74f16"
+  },
+  {
+    "name": "modificar",
+    "path": "/modificar",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\modificar.vue",
+    "chunkName": "pages/modificar",
+    "_name": "_ea430d06"
+  },
+  {
+    "name": "nuevo",
+    "path": "/nuevo",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\nuevo.vue",
+    "chunkName": "pages/nuevo",
+    "_name": "_7ea6044a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Harunomi\\\\Desktop\\\\Programas Pencas\\\\TBD_CONTROL2_1-2022\\\\Frontend\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_70bdd4e5"
+  }
+]
