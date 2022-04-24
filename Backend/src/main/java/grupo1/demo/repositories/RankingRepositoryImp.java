@@ -8,7 +8,7 @@ import org.sql2o.Sql2o;
 import java.util.*;
 
 @Repository
-public class RankingRepositoryImp {
+public class RankingRepositoryImp implements RankingRepository {
     @Autowired
     private Sql2o sql2o;
 
@@ -25,7 +25,7 @@ public class RankingRepositoryImp {
     @Override
     public String createRanking(Ranking ranking) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSER INTO emergencia(id, descripcion, valor)"
+            String sql = "INSERT INTO ranking(id, descripcion, valor)"
                     +
                     "VALUES(:id, :descripcion, :valor)";
             int idRanking = countRankings() + 1;

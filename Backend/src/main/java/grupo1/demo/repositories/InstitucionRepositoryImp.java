@@ -25,7 +25,7 @@ public class InstitucionRepositoryImp implements InstitucionRepository {
     @Override
     public String createInstitucion(Institucion institucion) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSER INTO institucion(id, nombre, ubicacion, correo, descripcion, contrasenya)"
+            String sql = "INSERT INTO institucion(id, nombre, ubicacion, correo, descripcion, contrasenya)"
                     +
                     "VALUES(:id, :nombre, :ubicacion, :correo, :descripcion, :contrasenya)";
             int idInstitucion = countInstituciones() + 1;

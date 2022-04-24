@@ -6,7 +6,7 @@ import java.util.*;
 public interface Emergencia_HabilidadRepository {
     public int countEmergencia_Habilidad();
 
-    public String createEmergencia(Emergencia_Habilidad emergencia_habilidad);
+    public String createEmergencia_Habilidad(Emergencia_Habilidad emergencia_habilidad);
 
     public List<Emergencia_Habilidad> getAllEmergencia_Habilidad();
 

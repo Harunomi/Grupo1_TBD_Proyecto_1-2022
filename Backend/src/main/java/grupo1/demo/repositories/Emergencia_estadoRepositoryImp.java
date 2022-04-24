@@ -25,7 +25,7 @@ public class Emergencia_estadoRepositoryImp implements Emergencia_EstadoReposito
     @Override
     public String createEmergenciaEstado(Emergencia_Estado emergencia_Estado){
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO emergencia_Estado(id, id_emergencia, id_estado)" + 
+            String sql = "INSERT INTO emergencia_Estado(id, id_emergencia, id_estado)" + 
             "VALUES(:id, :id_emergencia, :id_estado)";
             int idEmergencia_Estado = countEmergenciaEstado() + 1;
             conn.createQuery(sql)
@@ -87,5 +87,4 @@ public class Emergencia_estadoRepositoryImp implements Emergencia_EstadoReposito
         return true;
     }
     
-}
 }

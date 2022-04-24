@@ -9,6 +9,7 @@ public class Institucion {
 
     // atributos 
     private Integer id;
+   
     private String nombre;
     private String ubicacion;
     private String correo;
@@ -17,6 +18,12 @@ public class Institucion {
 
 
     // metodos
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public String getNombre() {
         return nombre;
     }

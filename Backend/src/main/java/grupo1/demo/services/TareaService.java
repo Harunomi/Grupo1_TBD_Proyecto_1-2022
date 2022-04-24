@@ -1,16 +1,14 @@
 package grupo1.demo.services;
-
 import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import grupo1.demo.models.Tarea;
 import grupo1.demo.repositories.TareaRepository;
 @RestController
@@ -18,7 +16,7 @@ import grupo1.demo.repositories.TareaRepository;
 public class TareaService {
     private final TareaRepository tareaRepository;
 
-    TareaRepository(TareaRepository tareaRepository) {
+    TareaService(TareaRepository tareaRepository){
         this.tareaRepository = tareaRepository;
     }
 

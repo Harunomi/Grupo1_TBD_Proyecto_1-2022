@@ -16,29 +16,29 @@ import grupo1.demo.models.Emergencia_Habilidad;
 import grupo1.demo.repositories.Emergencia_HabilidadRepository;
 
 public class Emergencia_HabilidadService {
-    private final Emergencia_Habilidad emergencia_habilidadRepository;
+    private final Emergencia_HabilidadRepository emergencia_habilidadRepository;
 
-    Voluntario_HabilidadService(Emergencia_HabilidadRepository emergencia_habilidadRepository){
+    Emergencia_HabilidadService(Emergencia_HabilidadRepository emergencia_habilidadRepository){
         this.emergencia_habilidadRepository = emergencia_habilidadRepository;
     }
 
     @GetMapping("/emergencia_habilidad/count")
     public String countEmergencia_Habilidad(){
-        int total = emergencia_habilidad.countEmergencia_Habilidad();
+        int total = emergencia_habilidadRepository.countEmergencia_Habilidad();
         return String.format("existen %s Emergencia_Habilidades ",total);
     }
 
     // Create
     @PostMapping("/emergencia_habilidad/create")
     @ResponseBody
-    public String createVoluntario_Habilidad(@RequestBody Voluntario_Habilidad voluntario_habilidad){
-        return voluntario_habilidad.createVoluntario_Habilidad(voluntario_habilidad);
+    public String createEmergencia_Habilidad(@RequestBody Emergencia_Habilidad Emergencia_habilidad){
+        return emergencia_habilidadRepository.createEmergencia_Habilidad(Emergencia_habilidad);
     }
 
     // read all
     @GetMapping("/emergencia_habilidades")
     public List<Emergencia_Habilidad> getAllEmergencia_Habilidad(){
-        return emergnecia_habilidadRepository.getAllEmergencia_Habilidad();
+        return emergencia_habilidadRepository.getAllEmergencia_Habilidad();
     }
 
     // update

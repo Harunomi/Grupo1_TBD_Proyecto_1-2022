@@ -9,7 +9,7 @@ public interface Voluntario_HabilidadRepository {
 
     public String createVoluntario_Habilidad(Voluntario_Habilidad voluntario_Habilidad);
 
-    public List<Emergencia> getAllVoluntario_Habilidad();
+    public List<Voluntario_Habilidad> getAllVoluntario_Habilidad();
 
     public String updateVoluntario_Habilidad(Voluntario_Habilidad voluntario_habilidad);
 

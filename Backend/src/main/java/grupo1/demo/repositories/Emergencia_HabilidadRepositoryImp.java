@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
-
+@Repository
 public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRepository {
     @Autowired
     private Sql2o sql2o;
@@ -67,7 +67,7 @@ public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRe
     }
 
     @Override
-    public String createEmergencia_Habilidad(Emergencia_Habilidad emergencia_habilidad){
+    public String updateEmergencia_Habilidad(Emergencia_Habilidad emergencia_habilidad){
         try(Connection conn = sql2o.open()){
             String sql = "INSERT INTO emergencia_habilidad(id, id_emergencia, id_habilidad)" + 
             "VALUES(:id, :id_emergencia, :id_habilidad)";

@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import grupo1.demo.models.Voluntario_Habilidad;
 import grupo1.demo.repositories.Voluntario_HabilidadRepository;
 
+@RestController
+@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 public class Voluntario_HabilidadService {
-    private final Voluntario_Habilidad voluntario_habilidadRepository;
+    private final Voluntario_HabilidadRepository voluntario_habilidadRepository;
 
     Voluntario_HabilidadService(Voluntario_HabilidadRepository voluntario_habilidadRepository){
         this.voluntario_habilidadRepository = voluntario_habilidadRepository;
@@ -24,7 +27,7 @@ public class Voluntario_HabilidadService {
 
     @GetMapping("/voluntario_habilidad/count")
     public String countVoluntario_Habilidad(){
-        int total = voluntario_habilidad.countVoluntario_Habilidad();
+        int total = voluntario_habilidadRepository.countVoluntario_Habilidad();
         return String.format("existen %s voluntario_habilidades",total);
     }
 
@@ -32,7 +35,7 @@ public class Voluntario_HabilidadService {
     @PostMapping("/voluntario_habilidad/create")
     @ResponseBody
     public String createVoluntario_Habilidad(@RequestBody Voluntario_Habilidad voluntario_habilidad){
-        return voluntario_habilidad.createVoluntario_Habilidad(voluntario_habilidad);
+        return voluntario_habilidadRepository.createVoluntario_Habilidad(voluntario_habilidad);
     }
 
     // read all

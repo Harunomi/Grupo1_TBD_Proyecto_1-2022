@@ -9,7 +9,7 @@ import java.util.*;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class HabilidadRepositorylmp implements HabilidadeRepository {
+public class HabilidadRepositorylmp implements HabilidadRepository {
     @Autowired
     private Sql2o sql2o;
 
@@ -26,14 +26,14 @@ public class HabilidadRepositorylmp implements HabilidadeRepository {
     @Override
     public String createHabilidad(Habilidad habilidad){
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO habilidad(id, nombre)" + 
+            String sql = "INSERT INTO habilidad(id, nombre)" + 
             "VALUES(:id, :nombre)";
             int idHabilidad = countHabilidades() + 1;
             conn.createQuery(sql)
                 .addParameter("id",idHabilidad)
                 .addParameter("nombre",habilidad.getNombre())
                 .executeUpdate();
-            habilidada.setId(idHabilidad);
+            habilidad.setId(idHabilidad);
             
             return "Se ha creado la habilidad con la id : " + idHabilidad;
 
@@ -73,7 +73,7 @@ public class HabilidadRepositorylmp implements HabilidadeRepository {
             "VALUES(:id, :nombre)";
             conn.createQuery(sql)
                 .addParameter("id",habilidad.getId())
-                .addParameter("nombre",habilidad.getTitulo())
+                .addParameter("nombre",habilidad.getNombre())
                 .executeUpdate();
             habilidad.setId(habilidad.getId());
             
@@ -84,3 +84,4 @@ public class HabilidadRepositorylmp implements HabilidadeRepository {
             return null;
         }
     }
+}

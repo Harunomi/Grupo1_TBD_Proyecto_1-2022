@@ -8,9 +8,11 @@ import java.util.*;
 import java.util.List;
 
 import grupo1.demo.models.Tarea_Habilidad;
-
+@Repository
 public class Tarea_HabilidadRepositoryImp implements Tarea_HabilidadRepository {
-   
+    @Autowired
+    private Sql2o sql2o;
+
     @Override
     public int countTarea_Habilidad() {
         int total = 0;
@@ -24,13 +26,13 @@ public class Tarea_HabilidadRepositoryImp implements Tarea_HabilidadRepository {
     @Override
     public String createTarea_Habilidad(Tarea_Habilidad tarea_Habilidad) {
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO tarea_Habilidad(id_TareaHabilidad, id_Tarea, id_Habilidad)" + 
+            String sql = "INSERT INTO tarea_Habilidad(id_TareaHabilidad, id_Tarea, id_Habilidad)" + 
             "VALUES(:id_TareaHabilidad, :id_Tarea, :id_Habilidad)";
             int idTarea_Habilidad = countTarea_Habilidad() + 1;
             conn.createQuery(sql)
                 .addParameter("id_tareaHabilidad",idTarea_Habilidad)
                 .addParameter("id_tarea",tarea_Habilidad.getId_tarea())
-                .addParameter("id_Habilidad",tarea_Habilidad.getId_Habilidad())
+                .addParameter("id_Habilidad",tarea_Habilidad.getId_habilidad())
                 .executeUpdate();
             tarea_Habilidad.setId(idTarea_Habilidad);
             
@@ -62,7 +64,7 @@ public class Tarea_HabilidadRepositoryImp implements Tarea_HabilidadRepository {
             conn.createQuery(sql)
                 .addParameter("id_tareaHabilidad",tarea_Habilidad.getId())
                 .addParameter("id_tarea",tarea_Habilidad.getId_tarea())
-                .addParameter("id_Habilidad",tarea_Habilidad.getId_Habilidad())
+                .addParameter("id_Habilidad",tarea_Habilidad.getId_habilidad())
                 .executeUpdate();
             tarea_Habilidad.setId(tarea_Habilidad.getId());
             

@@ -8,7 +8,7 @@ public interface VoluntarioRepository {
 
     public String createVoluntario(Voluntario voluntario);
 
-    public List<Voluntario_Habilidad> getAllVoluntarios();
+    public List<Voluntario> getAllVoluntarios();
 
     public String updateVoluntario(Voluntario voluntario);
 

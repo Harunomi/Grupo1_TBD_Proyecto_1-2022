@@ -7,8 +7,10 @@ import java.util.*;
 import java.util.List;
 
 import grupo1.demo.models.Tarea_Estado;
-
+@Repository
 public class Tarea_EstadoRepositoryImp implements Tarea_EstadoRepository{
+    @Autowired
+    private Sql2o sql2o;
 
     @Override
     public int countTarea_Estado() {
@@ -23,7 +25,7 @@ public class Tarea_EstadoRepositoryImp implements Tarea_EstadoRepository{
     @Override
     public String createTarea_Estado(Tarea_Estado tarea_Estado) {
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO tarea_estado(id_TareaEstado, id_Tarea, id_Estado)" + 
+            String sql = "INSERT INTO tarea_estado(id_TareaEstado, id_Tarea, id_Estado)" + 
             "VALUES(:id_TareaEstado, :id_Tarea, :id_Estado)";
             int idTarea_estado = countTarea_Estado() + 1;
             conn.createQuery(sql)

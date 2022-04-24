@@ -25,7 +25,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     @Override
     public String createVoluntario(Voluntario voluntario){
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO voluntario(id, nombre, correo, contrasenya, edad, ubicacion, id_ranking)" + 
+            String sql = "INSERT INTO voluntario(id, nombre, correo, contrasenya, edad, ubicacion, id_ranking)" + 
             "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :ubicacion, :id_ranking)";
             int idVoluntario = countVoluntarios() + 1;
             conn.createQuery(sql)

@@ -74,7 +74,7 @@ public class EstadoRepositoryImp implements EstadoRepository {
                     .addParameter("id", idEstado)
                     .addParameter("nombre", estado.getNombre())
                     .executeUpdate();
-            estado.setId(estado.idEstado);
+            estado.setId(estado.getId());
 
             return "Se ha editado el estado";
 

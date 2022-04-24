@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
-
+@Repository
 public class Voluntario_HabilidadRepositoryImp implements Voluntario_HabilidadRepository {
+    
     @Autowired
-
-    private Sql2o slq2o;
+    private Sql2o sql2o;
 
     @Override
-    private int countVoluntario_Habilidad(){
+    public int countVoluntario_Habilidad(){
         int total = 0;
         String sql = "SELECT COUNT(*) FROM voluntario_habilidad";
         try (Connection conn = sql2o.open()){
@@ -48,7 +48,7 @@ public class Voluntario_HabilidadRepositoryImp implements Voluntario_HabilidadRe
         String sql = "SELECT * FROM Voluntario_Habilidad";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql)
-                    .executeAndFetch(Emergencia.class);
+                    .executeAndFetch(Voluntario_Habilidad.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

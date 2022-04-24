@@ -1,14 +1,16 @@
 package grupo1.demo.repositories;
 
-import java.util.List;
-
 import grupo1.demo.models.Tarea;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
+@Repository
 public class TareaRepositoryImp implements TareaRepository{
+    
+    @Autowired
+    private Sql2o sql2o;
 
     @Override
     public int countTareas() {
