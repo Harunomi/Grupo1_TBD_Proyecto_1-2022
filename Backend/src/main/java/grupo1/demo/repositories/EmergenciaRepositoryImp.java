@@ -25,7 +25,7 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     @Override
     public String createEmergencia(Emergencia emergencia){
         try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, descripcion, id_institucion)" + 
+            String sql = "INSERT INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, descripcion, id_institucion)" + 
             "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :descripcion, :id_institucion)";
             int idEmergencia = countEmergencias() + 1;
             conn.createQuery(sql)
