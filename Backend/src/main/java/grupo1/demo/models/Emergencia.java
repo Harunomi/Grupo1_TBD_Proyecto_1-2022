@@ -10,36 +10,42 @@ public class Emergencia {
 
     // atributos
     private String titulo;
-    private String UbicacionEmergencia;
-    private Integer MaximoVoluntarios;
-    private String Descripcion;
+    private String ubicacion_emergencia;
+    private Integer maximo_voluntario;
+    private String descripcion;
     private Integer id;
-
+    private Integer id_institucion;
 
     // metodos
+    public Integer getId_institucion() {
+        return id_institucion;
+    }
+    public void setId_institucion(Integer id_institucion) {
+        this.id_institucion = id_institucion;
+    }
     public String getTitulo() {
         return titulo;
     }
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public String getUbicacionEmergencia() {
-        return UbicacionEmergencia;
+    public String getUbicacion_emergencia() {
+        return ubicacion_emergencia;
     }
-    public void setUbicacionEmergencia(String ubicacionEmergencia) {
-        UbicacionEmergencia = ubicacionEmergencia;
+    public void setUbicacion_emergencia(String ubicacion_emergencia) {
+        this.ubicacion_emergencia = ubicacion_emergencia;
     }
-    public Integer getMaximoVoluntarios() {
-        return MaximoVoluntarios;
+    public Integer getMaximo_voluntario() {
+        return maximo_voluntario;
     }
-    public void setMaximoVoluntarios(Integer maximoVoluntarios) {
-        MaximoVoluntarios = maximoVoluntarios;
+    public void setMaximo_voluntario(Integer maximo_voluntario) {
+        this.maximo_voluntario = maximo_voluntario;
     }
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
     public Integer getId() {
         return id;
@@ -47,5 +53,9 @@ public class Emergencia {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
+    
+    
 }   
 
