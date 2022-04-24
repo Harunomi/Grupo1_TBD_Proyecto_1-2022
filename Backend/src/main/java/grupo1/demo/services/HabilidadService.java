@@ -37,7 +37,7 @@ public class HabilidadService {
     @PostMapping("/habilidades/create")
     @ResponseBody
     public String createHabilidad(@RequestBody Habilidad habilidad) {
-        return habilidadRepository.createHabilid(habilidad);
+        return habilidadRepository.createHabilidad(habilidad);
     }
     
     // Read all
