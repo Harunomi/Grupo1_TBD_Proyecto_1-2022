@@ -35,7 +35,7 @@
       </div>
       <div class="info">
         <h2>Objeto</h2>
-        <code>{{ newBook }}</code>
+        <code>{{ newEmergencia}}</code>
         <p class="message">
           {{ message }}
         </p>

@@ -4,12 +4,12 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _0be03c74 = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
-const _70c2ae8a = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
-const _57f74f16 = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
-const _ea430d06 = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
-const _7ea6044a = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
-const _70bdd4e5 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _11170f6c = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
+const _12b978c3 = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
+const _748343e4 = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
+const _dfd56716 = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
+const _2725d97c = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
+const _42f63846 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -24,27 +24,27 @@ export const routerOptions = {
 
   routes: [{
     path: "/acerca-de",
-    component: _0be03c74,
+    component: _11170f6c,
     name: "acerca-de"
   }, {
     path: "/borrar",
-    component: _70c2ae8a,
+    component: _12b978c3,
     name: "borrar"
   }, {
     path: "/lista",
-    component: _57f74f16,
+    component: _748343e4,
     name: "lista"
   }, {
     path: "/modificar",
-    component: _ea430d06,
+    component: _dfd56716,
     name: "modificar"
   }, {
     path: "/nuevo",
-    component: _7ea6044a,
+    component: _2725d97c,
     name: "nuevo"
   }, {
     path: "/",
-    component: _70bdd4e5,
+    component: _42f63846,
     name: "index"
   }],
 

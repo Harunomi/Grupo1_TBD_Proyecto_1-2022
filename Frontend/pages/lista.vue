@@ -6,10 +6,10 @@
         ID: {{ emergencia.id }} - Titulo: {{ emergencia.titulo }}. Ubicacion:
         {{ emergencia.ubicacion_emergencia }}. Maximo Voluntarios:
         {{ emergencia.maximo_voluntarios }}. Voluntarios:
-        {{ emergencia.voluntarios }}. Descripción: {{ emergencia.descripcion }}.
+        {{ emergencia.voluntarios }}. Descripción: {{ emergencia.descripcion }}
       </li>
     </ul>
-    <div v-if="libros.length == 0" class="empty-list">
+    <div v-if="emergencias.length == 0" class="empty-list">
       <em>No hay emergencias activas en el momento.</em>
     </div>
   </div>
