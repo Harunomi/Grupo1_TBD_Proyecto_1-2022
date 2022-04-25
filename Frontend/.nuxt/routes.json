@@ -2,73 +2,37 @@
   {
     "name": "acerca-de",
     "path": "/acerca-de",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\acerca-de.vue",
-    "chunkName": "pages/acerca-de",
-    "_name": "_11170f6c"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\acerca-de.vue",
     "chunkName": "pages/acerca-de"
->>>>>>> Stashed changes
   },
   {
     "name": "borrar",
     "path": "/borrar",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\borrar.vue",
-    "chunkName": "pages/borrar",
-    "_name": "_12b978c3"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\borrar.vue",
     "chunkName": "pages/borrar"
->>>>>>> Stashed changes
   },
   {
     "name": "lista",
     "path": "/lista",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\lista.vue",
-    "chunkName": "pages/lista",
-    "_name": "_748343e4"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\lista.vue",
     "chunkName": "pages/lista"
->>>>>>> Stashed changes
   },
   {
     "name": "modificar",
     "path": "/modificar",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\modificar.vue",
-    "chunkName": "pages/modificar",
-    "_name": "_dfd56716"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\modificar.vue",
     "chunkName": "pages/modificar"
->>>>>>> Stashed changes
   },
   {
     "name": "nuevo",
     "path": "/nuevo",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\nuevo.vue",
-    "chunkName": "pages/nuevo",
-    "_name": "_2725d97c"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\nuevo.vue",
     "chunkName": "pages/nuevo"
->>>>>>> Stashed changes
   },
   {
     "name": "index",
     "path": "/",
-<<<<<<< Updated upstream
-    "component": "C:\\\\Users\\\\pipel\\\\Documents\\\\TBD\\\\Proyecto\\\\TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_42f63846"
-=======
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\index.vue",
     "chunkName": "pages/index"
->>>>>>> Stashed changes
   }
 ]
