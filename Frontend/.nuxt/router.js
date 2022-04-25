@@ -4,12 +4,21 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+<<<<<<< Updated upstream
 const _11170f6c = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
 const _12b978c3 = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
 const _748343e4 = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
 const _dfd56716 = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
 const _2725d97c = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
 const _42f63846 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+=======
+const _44262769 = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
+const _4ebeac34 = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
+const _152a06ea = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
+const _79b7371c = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
+const _1c19b1bf = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
+const _0e31825a = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+>>>>>>> Stashed changes
 
 const emptyFn = () => {}
 
@@ -24,6 +33,7 @@ export const routerOptions = {
 
   routes: [{
     path: "/acerca-de",
+<<<<<<< Updated upstream
     component: _11170f6c,
     name: "acerca-de"
   }, {
@@ -45,6 +55,29 @@ export const routerOptions = {
   }, {
     path: "/",
     component: _42f63846,
+=======
+    component: _44262769,
+    name: "acerca-de"
+  }, {
+    path: "/borrar",
+    component: _4ebeac34,
+    name: "borrar"
+  }, {
+    path: "/lista",
+    component: _152a06ea,
+    name: "lista"
+  }, {
+    path: "/modificar",
+    component: _79b7371c,
+    name: "modificar"
+  }, {
+    path: "/nuevo",
+    component: _1c19b1bf,
+    name: "nuevo"
+  }, {
+    path: "/",
+    component: _0e31825a,
+>>>>>>> Stashed changes
     name: "index"
   }],
 
