@@ -1,17 +1,16 @@
 <template>
   <div class="container">
-    <h1>Todos los libros</h1>
+    <h1>Emergencias Activas</h1>
     <ul class="item-list">
-      <li v-for="(libro, index) in libros" :key="index">
-        <!-- <img :src="'https://loremflickr.com/160/120/book?lock='+i"/>-->
-        <!-- {{index}} -  -->
-        ID: {{ libro.id }} - Titulo: {{ libro.titulo }}. Autor: {{ libro.autor }}.
-        Editorial: {{ libro.editorial }}. Páginas: {{ libro.paginas }}. Precio:
-        {{ libro.precio }}. Volumen: {{ libro.volumen }}
+      <li v-for="(emergencia, index) in emergencias" :key="index">
+        ID: {{ emergencia.id }} - Titulo: {{ emergencia.titulo }}. Ubicacion:
+        {{ emergencia.ubicacion_emergencia }}. Maximo Voluntarios:
+        {{ emergencia.maximo_voluntarios }}. Voluntarios:
+        {{ emergencia.voluntarios }}. Descripción: {{ emergencia.descripcion }}.
       </li>
     </ul>
     <div v-if="libros.length == 0" class="empty-list">
-      <em>No se existen libros guardados aún.</em>
+      <em>No hay emergencias activas en el momento.</em>
     </div>
   </div>
 </template>
@@ -20,16 +19,16 @@ export default {
   //Función que contiene los datos del componente
   data() {
     return {
-      //Lista de libros a mostrar
-      libros: [],
+      //Lista de emergencias a mostrar
+      emergencias: [],
     };
   },
   methods: {
     //Función asíncrona para consultar los datos
     getData: async function () {
       try {
-        let response = await this.$axios.get("/books");
-        this.libros = response.data;
+        let response = await this.$axios.get("/emergencias");
+        this.emergencias = response.data;
         console.log(response);
       } catch (error) {
         console.log("error", error);

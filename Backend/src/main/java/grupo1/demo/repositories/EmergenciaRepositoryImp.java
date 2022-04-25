@@ -23,24 +23,26 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     }
 
     @Override
-    public String createEmergencia(Emergencia emergencia){
-        try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, descripcion, id_institucion)" + 
-            "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :descripcion, :id_institucion)";
+    public String createEmergencia(Emergencia emergencia) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "INSERT INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, voluntarios, descripcion, id_institucion)"
+                    +
+                    "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion)";
             int idEmergencia = countEmergencias() + 1;
             conn.createQuery(sql)
-                .addParameter("id",idEmergencia)
-                .addParameter("titulo",emergencia.getTitulo())
-                .addParameter("ubicacion_emergencia",emergencia.getUbicacion_emergencia())
-                .addParameter("maximo_voluntario",emergencia.getMaximo_voluntario())
-                .addParameter("descripcion",emergencia.getDescripcion())
-                .addParameter("id_institucion",emergencia.getId_institucion())
-                .executeUpdate();
+                    .addParameter("id", idEmergencia)
+                    .addParameter("titulo", emergencia.getTitulo())
+                    .addParameter("ubicacion_emergencia", emergencia.getUbicacion_emergencia())
+                    .addParameter("voluntarios", 0)
+                    .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
+                    .addParameter("descripcion", emergencia.getDescripcion())
+                    .addParameter("id_institucion", emergencia.getId_institucion())
+                    .executeUpdate();
             emergencia.setId(idEmergencia);
-            
+
             return "Se ha creado una emergencia :D con la id : " + idEmergencia;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
@@ -62,39 +64,37 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     public boolean deleteEmergencia(int id) {
         String sql = "DELETE FROM emergencia WHERE id = :id";
         try (Connection conn = sql2o.open()) {
-           conn.createQuery(sql).addParameter("id", id).executeUpdate();
+            conn.createQuery(sql).addParameter("id", id).executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
         return true;
     }
+
     @Override
-    public String updateEmergencia(Emergencia emergencia){
-        try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, descripcion, id_institucion)" + 
-            "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :descripcion, :id_institucion)";
+    public String updateEmergencia(Emergencia emergencia) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "INSER INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, voluntarios, descripcion, id_institucion)"
+                    +
+                    "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion)";
             conn.createQuery(sql)
-                .addParameter("id",emergencia.getId())
-                .addParameter("titulo",emergencia.getTitulo())
-                .addParameter("ubicacion_emergencia",emergencia.getUbicacion_emergencia())
-                .addParameter("maximo_voluntario",emergencia.getMaximo_voluntario())
-                .addParameter("descripcion",emergencia.getDescripcion())
-                .addParameter("id_institucion",emergencia.getId_institucion())
-                .executeUpdate();
+                    .addParameter("id", emergencia.getId())
+                    .addParameter("titulo", emergencia.getTitulo())
+                    .addParameter("ubicacion_emergencia", emergencia.getUbicacion_emergencia())
+                    .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
+                    .addParameter("voluntarios", emergencia.getVoluntarios())
+                    .addParameter("descripcion", emergencia.getDescripcion())
+                    .addParameter("id_institucion", emergencia.getId_institucion())
+                    .executeUpdate();
             emergencia.setId(emergencia.getId());
-            
+
             return "Se ha editado la emergencia.";
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
-
-
-
-
-
 
 }

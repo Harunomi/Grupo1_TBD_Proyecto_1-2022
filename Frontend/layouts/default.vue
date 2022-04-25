@@ -5,16 +5,10 @@
         <!-- Enlaces de navegación-->
         <ul>
           <li>
-            <a href="/lista">Listado Libros</a>
+            <a href="/lista">Lista de Emergencias</a>
           </li>
           <li>
-            <a href="/nuevo">Nuevo Libro</a>
-          </li>
-          <li>
-            <a href="/borrar">Eliminar Libro.</a>
-          </li>
-          <li>
-            <a href="/modificar">Modificar Libro</a>
+            <a href="/nuevo">Creacion Nueva Emergencias</a>
           </li>
           <li>
             <a href="/acerca-de">Acerca de</a>
