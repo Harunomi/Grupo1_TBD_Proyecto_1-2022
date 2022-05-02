@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import grupo1.demo.models.Emergencia_Habilidad;
 import grupo1.demo.repositories.Emergencia_HabilidadRepository;
 
+@RestController
+@CrossOrigin(origins = "*")
 public class Emergencia_HabilidadService {
     private final Emergencia_HabilidadRepository emergencia_habilidadRepository;
 

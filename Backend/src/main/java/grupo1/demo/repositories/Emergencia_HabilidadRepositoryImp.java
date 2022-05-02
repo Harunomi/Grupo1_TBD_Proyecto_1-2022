@@ -1,10 +1,13 @@
 package grupo1.demo.repositories;
+
 import grupo1.demo.models.Emergencia_Habilidad;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
+
 @Repository
 public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRepository {
     @Autowired
@@ -16,7 +19,6 @@ public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRe
         String sql = "SELECT COUNT(*) FROM emergencia_habilidad";
         try (Connection conn = sql2o.open()){
             total = conn.createQuery(sql).executeScalar(Integer.class);
-
         }
         return total;
     }
@@ -24,8 +26,9 @@ public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRe
     @Override
     public String createEmergencia_Habilidad(Emergencia_Habilidad emergencia_habilidad){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO emergencia_habilidad(id, id_emergencia, id_habilidad)" + 
-            "VALUES(:id, :id_emergencia, :id_habilidad)";
+            String sql = "INSERT INTO emergencia_habilidad(id, id_emergencia, id_habilidad)" 
+                    + 
+                    "VALUES(:id, :id_emergencia, :id_habilidad)";
             int idEmergencia_Habilidad = countEmergencia_Habilidad() + 1;
             conn.createQuery(sql)
                 .addParameter("id",idEmergencia_Habilidad)
@@ -44,7 +47,7 @@ public class Emergencia_HabilidadRepositoryImp implements Emergencia_HabilidadRe
 
     @Override
     public List<Emergencia_Habilidad> getAllEmergencia_Habilidad() {
-        String sql = "SELECT * FROM Emergencia_Habilidad";
+        String sql = "SELECT * FROM emergencia_Habilidad";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql)
                     .executeAndFetch(Emergencia_Habilidad.class);

@@ -1,6 +1,7 @@
 package grupo1.demo.repositories;
 
 import grupo1.demo.models.Emergencia;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;

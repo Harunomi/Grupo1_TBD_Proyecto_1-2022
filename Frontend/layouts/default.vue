@@ -11,6 +11,9 @@
             <a href="/nuevo">Creacion Nueva Emergencias</a>
           </li>
           <li>
+            <a href="/agregarHabilidad">Emergencia agregar Requisito</a>
+          </li>
+          <li>
             <a href="/acerca-de">Acerca de</a>
           </li>
         </ul>
@@ -19,7 +22,7 @@
     <Nuxt /><!-- Contenidos de las páginas-->
     <footer>
       <!-- contenido del footer -->
-      Ejemplo TBD
+      TBD - Grupo 1
     </footer>
   </div>
 </template>

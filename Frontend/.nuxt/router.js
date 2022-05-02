@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _44262769 = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
+const _a2d7cf1a = () => interopDefault(import('..\\pages\\agregarHabilidad.vue' /* webpackChunkName: "pages/agregarHabilidad" */))
 const _4ebeac34 = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
 const _152a06ea = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
 const _79b7371c = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
@@ -26,6 +27,10 @@ export const routerOptions = {
     path: "/acerca-de",
     component: _44262769,
     name: "acerca-de"
+  }, {
+    path: "/agregarHabilidad",
+    component: _a2d7cf1a,
+    name: "agregarHabilidad"
   }, {
     path: "/borrar",
     component: _4ebeac34,

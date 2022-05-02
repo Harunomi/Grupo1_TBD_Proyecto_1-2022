@@ -3,36 +3,49 @@
     "name": "acerca-de",
     "path": "/acerca-de",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\acerca-de.vue",
-    "chunkName": "pages/acerca-de"
+    "chunkName": "pages/acerca-de",
+    "_name": "_44262769"
+  },
+  {
+    "name": "agregarHabilidad",
+    "path": "/agregarHabilidad",
+    "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\agregarHabilidad.vue",
+    "chunkName": "pages/agregarHabilidad",
+    "_name": "_a2d7cf1a"
   },
   {
     "name": "borrar",
     "path": "/borrar",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\borrar.vue",
-    "chunkName": "pages/borrar"
+    "chunkName": "pages/borrar",
+    "_name": "_4ebeac34"
   },
   {
     "name": "lista",
     "path": "/lista",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\lista.vue",
-    "chunkName": "pages/lista"
+    "chunkName": "pages/lista",
+    "_name": "_152a06ea"
   },
   {
     "name": "modificar",
     "path": "/modificar",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\modificar.vue",
-    "chunkName": "pages/modificar"
+    "chunkName": "pages/modificar",
+    "_name": "_79b7371c"
   },
   {
     "name": "nuevo",
     "path": "/nuevo",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\nuevo.vue",
-    "chunkName": "pages/nuevo"
+    "chunkName": "pages/nuevo",
+    "_name": "_1c19b1bf"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\jtoro\\\\Desktop\\\\todo\\\\U\\\\ramos\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_0e31825a"
   }
 ]
