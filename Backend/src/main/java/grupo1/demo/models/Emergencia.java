@@ -9,17 +9,34 @@ public class Emergencia {
 
     // atributos
     private String titulo;
-    private String ubicacion_emergencia;
     private Integer maximo_voluntario;
     private Integer voluntarios;
     private String descripcion;
     private Integer id;
     private Integer id_institucion;
+    private double latitude;
+    private double longitude;
 
     // metodos
 
     public Integer getId_institucion() {
         return id_institucion;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public void setId_institucion(Integer id_institucion) {
@@ -34,20 +51,12 @@ public class Emergencia {
         this.titulo = titulo;
     }
 
-    public String getUbicacion_emergencia() {
-        return ubicacion_emergencia;
-    }
-
     public Integer getVoluntarios() {
         return voluntarios;
     }
 
     public void setVoluntarios(Integer voluntarios) {
         this.voluntarios = voluntarios;
-    }
-
-    public void setUbicacion_emergencia(String ubicacion_emergencia) {
-        this.ubicacion_emergencia = ubicacion_emergencia;
     }
 
     public Integer getMaximo_voluntario() {

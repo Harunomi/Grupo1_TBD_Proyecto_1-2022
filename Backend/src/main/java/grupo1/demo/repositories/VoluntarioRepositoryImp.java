@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
+import org.postgis.Point;
 
 @Repository
-public class VoluntarioRepositoryImp implements VoluntarioRepository{
+public class VoluntarioRepositoryImp implements VoluntarioRepository {
     @Autowired
     private Sql2o sql2o;
 
@@ -23,25 +24,26 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     }
 
     @Override
-    public String createVoluntario(Voluntario voluntario){
-        try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO voluntario(id, nombre, correo, contrasenya, edad, ubicacion, id_ranking)" + 
-            "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :ubicacion, :id_ranking)";
+    public String createVoluntario(Voluntario voluntario) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "INSERT INTO voluntario(id, nombre, correo, contrasenya, edad, id_ranking, location)" +
+                    "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :ubicacion, :id_ranking, ST_GeomFromText(:point, 4326))";
             int idVoluntario = countVoluntarios() + 1;
+            String point = "POINT(" + voluntario.getLongitude() + " " + voluntario.getLatitude() + ")";
             conn.createQuery(sql)
-                .addParameter("id",idVoluntario)
-                .addParameter("nombre",voluntario.getNombre())
-                .addParameter("correo",voluntario.getCorreo())
-                .addParameter("contrasenya",voluntario.getContrasenya())
-                .addParameter("edad",voluntario.getEdad())
-                .addParameter("ubicacion",voluntario.getUbicacion())
-                .addParameter("id_ranking",voluntario.getId_ranking())
-                .executeUpdate();
+                    .addParameter("id", idVoluntario)
+                    .addParameter("nombre", voluntario.getNombre())
+                    .addParameter("correo", voluntario.getCorreo())
+                    .addParameter("contrasenya", voluntario.getContrasenya())
+                    .addParameter("edad", voluntario.getEdad())
+                    .addParameter("id_ranking", voluntario.getId_ranking())
+                    .addParameter("point", point)
+                    .executeUpdate();
             voluntario.setId(idVoluntario);
-            
+
             return "Se ha creado un voluntario con la id : " + idVoluntario;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
@@ -63,7 +65,7 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     public boolean deleteVoluntario(int id) {
         String sql = "DELETE FROM voluntario WHERE id = :id";
         try (Connection conn = sql2o.open()) {
-           conn.createQuery(sql).addParameter("id", id).executeUpdate();
+            conn.createQuery(sql).addParameter("id", id).executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -72,24 +74,26 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository{
     }
 
     @Override
-    public String updateVoluntario(Voluntario voluntario){
-        try(Connection conn = sql2o.open()){
-            String sql = "INSER INTO voluntario(id, nombre, correo, contrasenya, edad, ubicacion, id_ranking)" + 
-            "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :ubicacion, :id_ranking)";
+    public String updateVoluntario(Voluntario voluntario) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "INSER INTO voluntario(id, nombre, correo, contrasenya, edad, id_ranking, location)" +
+                    "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :id_ranking, ST_GeomFromText(:point, 4326))";
+
+            String point = "POINT(" + voluntario.getLongitude() + " " + voluntario.getLatitude() + ")";
             conn.createQuery(sql)
-                .addParameter("id",voluntario.getId())
-                .addParameter("nombre",voluntario.getNombre())
-                .addParameter("correo",voluntario.getCorreo())
-                .addParameter("contrasenya",voluntario.getContrasenya())
-                .addParameter("edad",voluntario.getEdad())
-                .addParameter("ubicacion",voluntario.getUbicacion())
-                .addParameter("id_ranking",voluntario.getId_ranking())
-                .executeUpdate();
+                    .addParameter("id", voluntario.getId())
+                    .addParameter("nombre", voluntario.getNombre())
+                    .addParameter("correo", voluntario.getCorreo())
+                    .addParameter("contrasenya", voluntario.getContrasenya())
+                    .addParameter("edad", voluntario.getEdad())
+                    .addParameter("id_ranking", voluntario.getId_ranking())
+                    .addParameter("point", point)
+                    .executeUpdate();
             voluntario.setId(voluntario.getId());
-            
+
             return "Se ha modificado el Voluntario";
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }

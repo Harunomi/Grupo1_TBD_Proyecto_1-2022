@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
+import org.postgis.Point;
 
 @Repository
 public class EmergenciaRepositoryImp implements EmergenciaRepository {
@@ -26,18 +27,19 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     @Override
     public String createEmergencia(Emergencia emergencia) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, voluntarios, descripcion, id_institucion)"
+            String sql = "INSERT INTO emergencia(id, titulo, maximo_voluntario, voluntarios, descripcion, id_institucion, location)"
                     +
-                    "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion)";
+                    "VALUES(:id, :titulo, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion, ST_GeomFromText(:point, 4326))";
             int idEmergencia = countEmergencias() + 1;
+            String point = "POINT(" + emergencia.getLongitude() + " " + emergencia.getLatitude() + ")";
             conn.createQuery(sql)
                     .addParameter("id", idEmergencia)
                     .addParameter("titulo", emergencia.getTitulo())
-                    .addParameter("ubicacion_emergencia", emergencia.getUbicacion_emergencia())
                     .addParameter("voluntarios", 0)
                     .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
                     .addParameter("descripcion", emergencia.getDescripcion())
                     .addParameter("id_institucion", emergencia.getId_institucion())
+                    .addParameter("point", point)
                     .executeUpdate();
             emergencia.setId(idEmergencia);
 
@@ -76,17 +78,18 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
     @Override
     public String updateEmergencia(Emergencia emergencia) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSER INTO emergencia(id, titulo, ubicacion_emergencia, maximo_voluntario, voluntarios, descripcion, id_institucion)"
+            String sql = "INSER INTO emergencia(id, titulo, maximo_voluntario, voluntarios, descripcion, id_institucion, location)"
                     +
-                    "VALUES(:id, :titulo, :ubicacion_emergencia, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion)";
+                    "VALUES(:id, :titulo, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion, ST_GeomFromText(:point, 4326))";
+            String point = "POINT(" + emergencia.getLongitude() + " " + emergencia.getLatitude() + ")";
             conn.createQuery(sql)
                     .addParameter("id", emergencia.getId())
                     .addParameter("titulo", emergencia.getTitulo())
-                    .addParameter("ubicacion_emergencia", emergencia.getUbicacion_emergencia())
                     .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
                     .addParameter("voluntarios", emergencia.getVoluntarios())
                     .addParameter("descripcion", emergencia.getDescripcion())
                     .addParameter("id_institucion", emergencia.getId_institucion())
+                    .addParameter("point", point)
                     .executeUpdate();
             emergencia.setId(emergencia.getId());
 
