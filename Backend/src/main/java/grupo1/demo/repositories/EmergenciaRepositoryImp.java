@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import java.util.*;
-import org.postgis.Point;
 
 @Repository
 public class EmergenciaRepositoryImp implements EmergenciaRepository {
