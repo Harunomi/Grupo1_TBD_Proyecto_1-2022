@@ -1,30 +1,18 @@
 <template>
   <div class="container">
-    <h1>Agregar Nueva Emergencia</h1>
+    <h1>Agregar Nuevo Voluntario</h1>
     <form @submit.prevent="handleSubmitForm">
       <div class="form-item">
-        <label>Titulo</label>
-        <input type="text" id="titulo" v-model="newEmergencia.titulo" />
+        <label>Nombre</label>
+        <input type="text" id="nombre" v-model="newVoluntario.nombre" />
       </div>
       <div class="form-item">
-        <label>Maximo de Voluntarios</label>
-        <input
-          type="numer"
-          id="maximo_voluntarios"
-          v-model="newEmergencia.maximo_voluntarios"
-        />
+        <label>Correo</label>
+        <input type="text" id="correo" v-model="newVoluntario.correo" />
       </div>
       <div class="form-item">
-        <label>Descripción</label>
-        <input
-          type="text"
-          id="descripcion"
-          v-model="newEmergencia.descripcion"
-        />
-      </div>
-      <div class="form-item">
-        <label>Requisitos</label>
-        <input type="text" id="array" v-model="newEmergencia.array" />
+        <label>Edad</label>
+        <input type="number" id="descripcion" v-model="newVoluntario.edad" />
       </div>
       <div class="form-item">
         <div>Coordenadas: {{ point }}</div>
@@ -36,17 +24,11 @@
       </div>
       <div class="info">
         <h2>Objeto</h2>
-        <code>{{ newEmergencia }}</code>
+        <code>{{ newVoluntario }}</code>
         <p class="message">
           {{ message }}
         </p>
       </div>
-      <h1>Requisitos existentes</h1>
-      <ul class="item-list">
-        <li v-for="(habilidad, index) in habilidades" :key="index">
-          ID: {{ habilidad.id }} - Nombre: {{ habilidad.nombre }}.
-        </li>
-      </ul>
     </form>
   </div>
 </template>
@@ -72,14 +54,13 @@ export default {
       points: [], //colección de puntos cargados de la BD
       message: "",
       mymap: null, //objeto de mapa(DIV)
-      newEmergencia: {
-        titulo: "",
-        maximo_voluntarios: "",
-        descripcion: "",
-        latitudeE: null, //Datos de nuevo punto
-        longitudeE: null,
+      newVoluntario: {
+        nombre: "",
+        correo: "",
+        edad: "",
+        latitudeV: null, //Datos de nuevo punto
+        longitudeV: null,
       },
-      habilidades: [],
     };
   },
   computed: {
@@ -96,14 +77,14 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = "http://localhost:8080/emergencias/create";
+      let apiURL = "http://localhost:8080/voluntarios/create";
       axios
         .post(apiURL, {
-          titulo: this.newEmergencia.titulo,
-          maximo_voluntarios: this.newEmergencia.maximo_voluntarios,
-          descripcion: this.newEmergencia.descripcion,
-          latitude: this.newEmergencia.latitudeE,
-          longitude: this.newEmergencia.longitudeE,
+          nombre: this.newVoluntario.nombre,
+          correo: this.newVoluntario.correo,
+          edad: this.newVoluntario.edad,
+          latitude: this.newVoluntario.latitudeV,
+          longitude: this.newVoluntario.longitudeV,
         })
         .then((res) => {
           this.respuesta = res.data;

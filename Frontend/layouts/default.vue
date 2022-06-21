@@ -5,10 +5,16 @@
         <!-- Enlaces de navegación-->
         <ul>
           <li>
+            <a href="/">Inicio</a>
+          </li>
+          <li>
             <a href="/lista">Lista de Emergencias</a>
           </li>
           <li>
             <a href="/nuevo">Creacion Nueva Emergencias</a>
+          </li>
+          <li>
+            <a href="/nuevoVoluntario">Crear Nuevo Voluntario</a>
           </li>
           <li>
             <a href="/agregarHabilidad">Emergencia agregar Requisito</a>
