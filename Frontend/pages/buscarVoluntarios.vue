@@ -4,16 +4,25 @@
     <form @submit.prevent="handleSubmitForm">
       <div class="form-item">
         <label>Seleccione la emergencia a buscar voluntarios</label>
-        <select v-model="selected">
+        <select v-model="nuevaBusqueda.id">
           <option disabled value="">Emergencias</option>
-          <option v-for="(emergencia, index) in emergencias" :key="index">
+          <option
+            v-for="(emergencia, index) in emergencias"
+            :key="index"
+            :value="emergencia.id"
+          >
             {{ emergencia.titulo }}
           </option>
         </select>
       </div>
       <div class="form-item">
         <label>Ingrese cantidad de voluntarios a buscar</label>
-        <input type="number" id="numeroVoluntarios" min="1" />
+        <input
+          type="number"
+          id="numeroVoluntarios"
+          min="1"
+          v-model="nuevaBusqueda.cantidad"
+        />
       </div>
       <div>
         <button type="submit" class="main">Buscar</button>
@@ -40,8 +49,15 @@ export default {
   data: function () {
     return {
       selected: null,
+      points: [], //colección de puntos cargados de la BD
       emergencias: [],
+      numeroVoluntarios: "",
       mymap: null,
+      voluntarios: [],
+      nuevaBusqueda: {
+        id: null,
+        cantidad: null,
+      },
     };
   },
   computed: {
@@ -57,6 +73,10 @@ export default {
     },
   },
   methods: {
+    handleSubmitForm() {
+      //Se agregan los puntos mediante llamada al servicio
+      this.getPoints(this.mymap);
+    },
     getData: async function () {
       try {
         let response = await this.$axios.get("/emergencias/");
@@ -84,7 +104,10 @@ export default {
       };
 
       try {
-        let response = await axios.post("/emergencias", newPoint);
+        let response = await axios.post(
+          "/obtenerVoluntariosCercanos",
+          newPoint
+        );
         console.log("response", response.data);
         let id = response.data.id;
         this.message = `${this.name} fue creado con éxito con id: ${id}`;
@@ -99,14 +122,26 @@ export default {
     async getPoints(map) {
       try {
         //se llama el servicio
-        let response = await axios.get("/emergencias");
-        let dataPoints = response.data;
+        let response = await this.$axios
+          .post("/obtenerVoluntariosCercanos", {
+            id: this.nuevaBusqueda.id,
+            cantidad: this.nuevaBusqueda.cantidad,
+          })
+          .then((res) => {
+            this.respuesta = res.data;
+            //.post dentro de aqui
+          })
+          .catch((error) => {
+            alert(error);
+            console.log(error);
+          });
+        let dataPoints = this.respuesta;
         //Se itera por los puntos
         dataPoints.forEach((point) => {
           //Se crea un marcador por cada punto
           let p = [point.latitude, point.longitude];
           let marker = L.marker(p, { icon: myIcon }) //se define el ícono del marcador
-            .bindPopup(point.name); //Se agrega un popup con el nombre
+            .bindPopup(point.nombre); //Se agrega un popup con el nombre
 
           //Se agrega a la lista
           this.points.push(marker);
@@ -128,15 +163,13 @@ export default {
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 18,
+      maxZoom: 20,
     }).addTo(this.mymap);
     //Evento click obtiene lat y long actual
     this.mymap.on("click", function (e) {
       _this.latitude = e.latlng.lat;
       _this.longitude = e.latlng.lng;
     });
-    //Se agregan los puntos mediante llamada al servicio
-    this.getPoints(this.mymap);
   },
   created: function () {
     this.getData();

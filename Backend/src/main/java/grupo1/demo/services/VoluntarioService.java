@@ -1,6 +1,6 @@
 package grupo1.demo.services;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import grupo1.demo.models.Voluntario;
+import grupo1.demo.models.Emergencia;
+import grupo1.demo.models.BusquedaVoluntario;
 import grupo1.demo.repositories.VoluntarioRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -70,4 +73,12 @@ public class VoluntarioService {
     public boolean deleteVoluntario(@PathVariable int id) {
         return voluntarioRepository.deleteVoluntario(id);
     }
+
+    // Obtener Voluntarios Cercanos
+    @PostMapping("/obtenerVoluntariosCercanos")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<Voluntario> obtenerVoluntariosCercanos(@RequestBody BusquedaVoluntario datos) {
+        return voluntarioRepository.obtenerVoluntariosCercanos(datos);
+    }
+
 }

@@ -3,70 +3,60 @@
     "name": "acerca-de",
     "path": "/acerca-de",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\acerca-de.vue",
-    "chunkName": "pages/acerca-de",
-    "_name": "_05163515"
+    "chunkName": "pages/acerca-de"
   },
   {
     "name": "agregarHabilidad",
     "path": "/agregarHabilidad",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\agregarHabilidad.vue",
-    "chunkName": "pages/agregarHabilidad",
-    "_name": "_3a359147"
+    "chunkName": "pages/agregarHabilidad"
   },
   {
     "name": "borrar",
     "path": "/borrar",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\borrar.vue",
-    "chunkName": "pages/borrar",
-    "_name": "_2271488c"
+    "chunkName": "pages/borrar"
   },
   {
     "name": "buscarVoluntarios",
     "path": "/buscarVoluntarios",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\buscarVoluntarios.vue",
-    "chunkName": "pages/buscarVoluntarios",
-    "_name": "_4b504398"
+    "chunkName": "pages/buscarVoluntarios"
   },
   {
     "name": "lista",
     "path": "/lista",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\lista.vue",
-    "chunkName": "pages/lista",
-    "_name": "_617cc037"
+    "chunkName": "pages/lista"
   },
   {
     "name": "modificar",
     "path": "/modificar",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\modificar.vue",
-    "chunkName": "pages/modificar",
-    "_name": "_f7d71bc4"
+    "chunkName": "pages/modificar"
   },
   {
     "name": "mostrarVoluntarios",
     "path": "/mostrarVoluntarios",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\mostrarVoluntarios.vue",
-    "chunkName": "pages/mostrarVoluntarios",
-    "_name": "_50607ee0"
+    "chunkName": "pages/mostrarVoluntarios"
   },
   {
     "name": "nuevo",
     "path": "/nuevo",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\nuevo.vue",
-    "chunkName": "pages/nuevo",
-    "_name": "_efa9152a"
+    "chunkName": "pages/nuevo"
   },
   {
     "name": "nuevoVoluntario",
     "path": "/nuevoVoluntario",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\nuevoVoluntario.vue",
-    "chunkName": "pages/nuevoVoluntario",
-    "_name": "_2ec8baac"
+    "chunkName": "pages/nuevoVoluntario"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\Grupo1_TBD_Proyecto_1-2022\\\\Frontend\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_7a434606"
+    "chunkName": "pages/index"
   }
 ]

@@ -1,6 +1,8 @@
 package grupo1.demo.repositories;
 
 import grupo1.demo.models.Voluntario;
+import grupo1.demo.models.Emergencia;
+import grupo1.demo.models.BusquedaVoluntario;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
@@ -96,4 +98,21 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
             return null;
         }
     }
+
+    @Override
+    public List<Voluntario> obtenerVoluntariosCercanos(BusquedaVoluntario datos) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "SELECT v.id, v.nombre, v.correo, v.edad, st_x(st_astext(v.ubicacion_geometria)) AS longitude, st_y(st_astext(v.ubicacion_geometria)) AS latitude FROM Voluntario as v, Emergencia "
+                    + "WHERE emergencia.id = :id ORDER BY ST_Distance( emergencia.ubicacion_geometria, v.ubicacion_geometria) ASC LIMIT :cantidad";
+
+            return conn.createQuery(sql)
+                    .addParameter("cantidad", datos.getCantidad())
+                    .addParameter("id", datos.getId())
+                    .executeAndFetch(Voluntario.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 }
