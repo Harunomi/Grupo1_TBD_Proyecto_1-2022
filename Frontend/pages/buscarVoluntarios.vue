@@ -1,55 +1,29 @@
 <template>
   <div class="container">
-    <h1>Agregar Nueva Emergencia</h1>
+    <h1>Buscador de Voluntarios</h1>
     <form @submit.prevent="handleSubmitForm">
       <div class="form-item">
-        <label>Titulo</label>
-        <input type="text" id="titulo" v-model="newEmergencia.titulo" />
+        <label>Seleccione la emergencia a buscar voluntarios</label>
+        <select v-model="selected">
+          <option disabled value="">Emergencias</option>
+          <option v-for="(emergencia, index) in emergencias" :key="index">
+            {{ emergencia.titulo }}
+          </option>
+        </select>
       </div>
       <div class="form-item">
-        <label>Maximo de Voluntarios</label>
-        <input
-          type="number"
-          min="1"
-          v-model="newEmergencia.maximoVoluntarios"
-        />
-      </div>
-      <div class="form-item">
-        <label>Descripción</label>
-        <input
-          type="text"
-          id="descripcion"
-          v-model="newEmergencia.descripcion"
-        />
-      </div>
-      <div class="form-item">
-        <label>Requisitos</label>
-        <input type="text" id="array" v-model="newEmergencia.array" />
-      </div>
-      <div class="form-item">
-        <div>Coordenadas: {{ point }}</div>
-        <div>{{ message }}</div>
-        <div id="mapid"></div>
+        <label>Ingrese cantidad de voluntarios a buscar</label>
+        <input type="number" id="numeroVoluntarios" min="1" />
       </div>
       <div>
-        <button type="submit" class="main">Crear</button>
+        <button type="submit" class="main">Buscar</button>
       </div>
-      <div class="info">
-        <h2>Objeto</h2>
-        <code>{{ newEmergencia }}</code>
-        <p class="message">
-          {{ message }}
-        </p>
-      </div>
-      <h1>Requisitos existentes</h1>
-      <ul class="item-list">
-        <li v-for="(habilidad, index) in habilidades" :key="index">
-          ID: {{ habilidad.id }} - Nombre: {{ habilidad.nombre }}.
-        </li>
-      </ul>
     </form>
+    <h1>Resultado de la busqueda de voluntarios</h1>
+    <div id="mapid"></div>
   </div>
 </template>
+
 <script>
 //Importaciones
 import "leaflet/dist/leaflet"; //librería leaflet
@@ -63,21 +37,11 @@ var myIcon = new LeafIcon({ iconUrl: icon });
 //librería axios
 import axios from "axios";
 export default {
-  name: "Home",
   data: function () {
     return {
-      latitude: null, //Datos de nuevo punto
-      longitude: null,
-      name: "",
-      points: [], //colección de puntos cargados de la BD
-      message: "",
-      mymap: null, //objeto de mapa(DIV)
-      newEmergencia: {
-        titulo: "",
-        maximoVoluntarios: "",
-        descripcion: "",
-      },
-      habilidades: [],
+      selected: null,
+      emergencias: [],
+      mymap: null,
     };
   },
   computed: {
@@ -93,25 +57,14 @@ export default {
     },
   },
   methods: {
-    handleSubmitForm() {
-      let apiURL = "http://localhost:8080/emergencias/create";
-      axios
-        .post(apiURL, {
-          titulo: this.newEmergencia.titulo,
-          maximo_voluntarios: this.newEmergencia.maximoVoluntarios,
-          descripcion: this.newEmergencia.descripcion,
-          latitude: this.latitude,
-          longitude: this.longitude,
-        })
-        .then((res) => {
-          this.respuesta = res.data;
-          alert(this.respuesta);
-          //.post dentro de aqui
-        })
-        .catch((error) => {
-          alert(error);
-          console.log(error);
-        });
+    getData: async function () {
+      try {
+        let response = await this.$axios.get("/emergencias/");
+        this.emergencias = response.data;
+        console.log(response);
+      } catch (error) {
+        console.log("Error al obtener las emergencias", error);
+      }
     },
     clearMarkers: function () {
       //eliminar marcadores
@@ -131,7 +84,7 @@ export default {
       };
 
       try {
-        let response = await axios.post("http://localhost:3000/", newPoint);
+        let response = await axios.post("/emergencias", newPoint);
         console.log("response", response.data);
         let id = response.data.id;
         this.message = `${this.name} fue creado con éxito con id: ${id}`;
@@ -146,7 +99,7 @@ export default {
     async getPoints(map) {
       try {
         //se llama el servicio
-        let response = await axios.get("http://localhost:3000/");
+        let response = await axios.get("/emergencias");
         let dataPoints = response.data;
         //Se itera por los puntos
         dataPoints.forEach((point) => {
@@ -170,7 +123,7 @@ export default {
   mounted: function () {
     let _this = this;
     //Se asigna el mapa al elemento con id="mapid"
-    this.mymap = L.map("mapid").setView([-33.456, -70.648], 7);
+    this.mymap = L.map("mapid").setView([-33.456, -70.648], 10);
     //Se definen los mapas de bits de OSM
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
@@ -185,8 +138,12 @@ export default {
     //Se agregan los puntos mediante llamada al servicio
     this.getPoints(this.mymap);
   },
+  created: function () {
+    this.getData();
+  },
 };
 </script>
+
 <style>
 .home {
   display: flex;

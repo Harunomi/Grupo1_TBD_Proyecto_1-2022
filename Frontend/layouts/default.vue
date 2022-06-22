@@ -17,6 +17,12 @@
             <a href="/nuevoVoluntario">Crear Nuevo Voluntario</a>
           </li>
           <li>
+            <a href="/buscarVoluntarios">Buscar Voluntarios</a>
+          </li>
+          <li>
+            <a href="/mostrarVoluntarios">Mostrar Voluntarios</a>
+          </li>
+          <li>
             <a href="/agregarHabilidad">Emergencia agregar Requisito</a>
           </li>
           <li>

@@ -12,7 +12,12 @@
       </div>
       <div class="form-item">
         <label>Edad</label>
-        <input type="number" id="descripcion" v-model="newVoluntario.edad" />
+        <input
+          type="number"
+          min="1"
+          id="descripcion"
+          v-model="newVoluntario.edad"
+        />
       </div>
       <div class="form-item">
         <div>Coordenadas: {{ point }}</div>
@@ -83,8 +88,8 @@ export default {
           nombre: this.newVoluntario.nombre,
           correo: this.newVoluntario.correo,
           edad: this.newVoluntario.edad,
-          latitude: this.newVoluntario.latitudeV,
-          longitude: this.newVoluntario.longitudeV,
+          longitude: this.longitude,
+          latitude: this.latitude,
         })
         .then((res) => {
           this.respuesta = res.data;
@@ -114,7 +119,7 @@ export default {
       };
 
       try {
-        let response = await axios.post("http://localhost:3000/", newPoint);
+        let response = await axios.post("/voluntarios/", newPoint);
         console.log("response", response.data);
         let id = response.data.id;
         this.message = `${this.name} fue creado con éxito con id: ${id}`;
@@ -129,7 +134,7 @@ export default {
     async getPoints(map) {
       try {
         //se llama el servicio
-        let response = await axios.get("http://localhost:3000/");
+        let response = await axios.get("/voluntarios/");
         let dataPoints = response.data;
         //Se itera por los puntos
         dataPoints.forEach((point) => {

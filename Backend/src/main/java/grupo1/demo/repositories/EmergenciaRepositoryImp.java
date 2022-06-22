@@ -23,18 +23,50 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
         return total;
     }
 
+    /*
+     * @Override
+     * public String createEmergencia(Emergencia emergencia) {
+     * try (Connection conn = sql2o.open()) {
+     * String sql =
+     * "INSERT INTO emergencia(id, titulo, maximo_voluntario, voluntarios, descripcion, id_institucion, location)"
+     * +
+     * "VALUES(:id, :titulo, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion, ST_GeomFromText(:point, 4326))"
+     * ;
+     * int idEmergencia = countEmergencias() + 1;
+     * String point = "POINT(" + emergencia.getLongitude() + " " +
+     * emergencia.getLatitude() + ")";
+     * conn.createQuery(sql)
+     * .addParameter("id", idEmergencia)
+     * .addParameter("titulo", emergencia.getTitulo())
+     * .addParameter("voluntarios", 0)
+     * .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
+     * .addParameter("descripcion", emergencia.getDescripcion())
+     * .addParameter("id_institucion", emergencia.getId_institucion())
+     * .addParameter("point", point)
+     * .executeUpdate();
+     * emergencia.setId(idEmergencia);
+     * 
+     * return "Se ha creado una emergencia :D con la id : " + idEmergencia;
+     * 
+     * } catch (Exception e) {
+     * System.out.println(e.getMessage());
+     * return null;
+     * }
+     * }
+     */
+
     @Override
     public String createEmergencia(Emergencia emergencia) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO emergencia(id, titulo, maximo_voluntario, voluntarios, descripcion, id_institucion, location)"
+            String sql = "INSERT INTO emergencia(id, id_institucion, maximo_voluntario, titulo, descripcion, ubicacion_geometria)"
                     +
-                    "VALUES(:id, :titulo, :maximo_voluntario, :voluntarios, :descripcion, :id_institucion, ST_GeomFromText(:point, 4326))";
+                    "VALUES(:id, :id_institucion, :maximo_voluntario, :titulo, :descripcion, ST_GeomFromText(:point, 4326))";
             int idEmergencia = countEmergencias() + 1;
             String point = "POINT(" + emergencia.getLongitude() + " " + emergencia.getLatitude() + ")";
+            ;
             conn.createQuery(sql)
                     .addParameter("id", idEmergencia)
                     .addParameter("titulo", emergencia.getTitulo())
-                    .addParameter("voluntarios", 0)
                     .addParameter("maximo_voluntario", emergencia.getMaximo_voluntario())
                     .addParameter("descripcion", emergencia.getDescripcion())
                     .addParameter("id_institucion", emergencia.getId_institucion())
@@ -50,12 +82,14 @@ public class EmergenciaRepositoryImp implements EmergenciaRepository {
         }
     }
 
+    // lectura
     @Override
     public List<Emergencia> getAllEmergencias() {
-        String sql = "SELECT * FROM Emergencia";
+        String sql = "SELECT id, titulo, maximo_voluntario, st_x(st_astext(ubicacion_geometria)) AS longitude, st_y(st_astext(ubicacion_geometria)) AS latitude FROM Emergencia";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql)
                     .executeAndFetch(Emergencia.class);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

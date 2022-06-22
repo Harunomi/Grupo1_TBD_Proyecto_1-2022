@@ -25,17 +25,15 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
     @Override
     public String createVoluntario(Voluntario voluntario) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO voluntario(id, nombre, correo, contrasenya, edad, id_ranking, location)" +
-                    "VALUES(:id, :nombre, :correo, :contrasenya, :edad, :ubicacion, :id_ranking, ST_GeomFromText(:point, 4326))";
+            String sql = "INSERT INTO voluntario(id, nombre, correo, edad, ubicacion_geometria)" +
+                    "VALUES(:id, :nombre, :correo, :edad, ST_GeomFromText(:point, 4326))";
             int idVoluntario = countVoluntarios() + 1;
             String point = "POINT(" + voluntario.getLongitude() + " " + voluntario.getLatitude() + ")";
             conn.createQuery(sql)
                     .addParameter("id", idVoluntario)
                     .addParameter("nombre", voluntario.getNombre())
                     .addParameter("correo", voluntario.getCorreo())
-                    .addParameter("contrasenya", voluntario.getContrasenya())
                     .addParameter("edad", voluntario.getEdad())
-                    .addParameter("id_ranking", voluntario.getId_ranking())
                     .addParameter("point", point)
                     .executeUpdate();
             voluntario.setId(idVoluntario);
@@ -48,9 +46,10 @@ public class VoluntarioRepositoryImp implements VoluntarioRepository {
         }
     }
 
+    // lectura
     @Override
     public List<Voluntario> getAllVoluntarios() {
-        String sql = "SELECT * FROM Voluntario";
+        String sql = "SELECT id, nombre, correo, edad, st_x(st_astext(ubicacion_geometria)) AS longitude, st_y(st_astext(ubicacion_geometria)) AS latitude FROM Voluntario";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql)
                     .executeAndFetch(Voluntario.class);

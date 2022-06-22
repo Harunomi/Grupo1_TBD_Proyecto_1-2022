@@ -18,7 +18,6 @@ public class Emergencia {
     private double longitude;
 
     // metodos
-
     public Integer getId_institucion() {
         return id_institucion;
     }

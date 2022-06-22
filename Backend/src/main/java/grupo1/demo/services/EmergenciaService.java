@@ -39,9 +39,28 @@ public class EmergenciaService {
     }
 
     // Read all
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/emergencias")
     public List<Emergencia> getAllEmergencias() {
-        return emergenciaRepository.getAllEmergencias();
+        System.out.println("getAllEmergencias()");
+        try {
+            List<Emergencia> emergencias = emergenciaRepository.getAllEmergencias();
+            System.out.println("1");
+            for (Emergencia e : emergencias) {
+                System.out.println("ID: " + e.getId());
+                /*
+                 * PGgeometry geom = d.getLocation();
+                 * Geometry geometry = geom.getGeometry();
+                 * 
+                 * System.out.println("Point: "+ geometry.getValue());
+                 */
+            }
+            System.out.println("2");
+            return emergencias;
+        } catch (Exception e) {
+            System.out.println("Error :" + e.getMessage());
+            return null;
+        }
     }
 
     // UPDATE

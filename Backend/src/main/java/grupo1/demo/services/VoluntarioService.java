@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import grupo1.demo.models.Voluntario;
 import grupo1.demo.repositories.VoluntarioRepository;
 
-@RestController
 @CrossOrigin(origins = "*")
+@RestController
 public class VoluntarioService {
     private final VoluntarioRepository voluntarioRepository;
 
@@ -24,7 +25,6 @@ public class VoluntarioService {
         this.voluntarioRepository = voluntarioRepository;
     }
 
-    
     @GetMapping("/voluntarios/count")
     public String countVoluntarios() {
         int total = voluntarioRepository.countVoluntarios();
@@ -37,11 +37,24 @@ public class VoluntarioService {
     public String createVoluntario(@RequestBody Voluntario voluntario) {
         return voluntarioRepository.createVoluntario(voluntario);
     }
-    
+
     // Read all
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/voluntarios")
     public List<Voluntario> getAllVoluntarios() {
-        return voluntarioRepository.getAllVoluntarios();
+        System.out.println("getAllVoluntarios()");
+        try {
+            List<Voluntario> voluntarios = voluntarioRepository.getAllVoluntarios();
+            System.out.println("1");
+            for (Voluntario v : voluntarios) {
+                System.out.println("ID: " + v.getId());
+            }
+            System.out.println("2");
+            return voluntarios;
+        } catch (Exception e) {
+            System.out.println("Error :" + e.getMessage());
+            return null;
+        }
     }
 
     // uUPODATE
@@ -50,6 +63,7 @@ public class VoluntarioService {
     public String updateVoluntario(@RequestBody Voluntario voluntario) {
         return voluntarioRepository.updateVoluntario(voluntario);
     }
+
     // Delete
     @DeleteMapping("/voluntarios/delete/{id}")
     @ResponseBody

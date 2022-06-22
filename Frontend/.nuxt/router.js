@@ -4,13 +4,16 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _44262769 = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
-const _a2d7cf1a = () => interopDefault(import('..\\pages\\agregarHabilidad.vue' /* webpackChunkName: "pages/agregarHabilidad" */))
-const _4ebeac34 = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
-const _152a06ea = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
-const _79b7371c = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
-const _1c19b1bf = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
-const _0e31825a = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _05163515 = () => interopDefault(import('..\\pages\\acerca-de.vue' /* webpackChunkName: "pages/acerca-de" */))
+const _3a359147 = () => interopDefault(import('..\\pages\\agregarHabilidad.vue' /* webpackChunkName: "pages/agregarHabilidad" */))
+const _2271488c = () => interopDefault(import('..\\pages\\borrar.vue' /* webpackChunkName: "pages/borrar" */))
+const _4b504398 = () => interopDefault(import('..\\pages\\buscarVoluntarios.vue' /* webpackChunkName: "pages/buscarVoluntarios" */))
+const _617cc037 = () => interopDefault(import('..\\pages\\lista.vue' /* webpackChunkName: "pages/lista" */))
+const _f7d71bc4 = () => interopDefault(import('..\\pages\\modificar.vue' /* webpackChunkName: "pages/modificar" */))
+const _50607ee0 = () => interopDefault(import('..\\pages\\mostrarVoluntarios.vue' /* webpackChunkName: "pages/mostrarVoluntarios" */))
+const _efa9152a = () => interopDefault(import('..\\pages\\nuevo.vue' /* webpackChunkName: "pages/nuevo" */))
+const _2ec8baac = () => interopDefault(import('..\\pages\\nuevoVoluntario.vue' /* webpackChunkName: "pages/nuevoVoluntario" */))
+const _7a434606 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -25,31 +28,43 @@ export const routerOptions = {
 
   routes: [{
     path: "/acerca-de",
-    component: _44262769,
+    component: _05163515,
     name: "acerca-de"
   }, {
     path: "/agregarHabilidad",
-    component: _a2d7cf1a,
+    component: _3a359147,
     name: "agregarHabilidad"
   }, {
     path: "/borrar",
-    component: _4ebeac34,
+    component: _2271488c,
     name: "borrar"
   }, {
+    path: "/buscarVoluntarios",
+    component: _4b504398,
+    name: "buscarVoluntarios"
+  }, {
     path: "/lista",
-    component: _152a06ea,
+    component: _617cc037,
     name: "lista"
   }, {
     path: "/modificar",
-    component: _79b7371c,
+    component: _f7d71bc4,
     name: "modificar"
   }, {
+    path: "/mostrarVoluntarios",
+    component: _50607ee0,
+    name: "mostrarVoluntarios"
+  }, {
     path: "/nuevo",
-    component: _1c19b1bf,
+    component: _efa9152a,
     name: "nuevo"
   }, {
+    path: "/nuevoVoluntario",
+    component: _2ec8baac,
+    name: "nuevoVoluntario"
+  }, {
     path: "/",
-    component: _0e31825a,
+    component: _7a434606,
     name: "index"
   }],
 
