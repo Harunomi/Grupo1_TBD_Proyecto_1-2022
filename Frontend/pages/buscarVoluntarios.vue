@@ -74,6 +74,7 @@ export default {
   },
   methods: {
     handleSubmitForm() {
+      this.clearMarkers(this.mymap);
       //Se agregan los puntos mediante llamada al servicio
       this.getPoints(this.mymap);
     },
