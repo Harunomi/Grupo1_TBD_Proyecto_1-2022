@@ -1,4 +1,4 @@
-# Laboratorio TBD entrega 1 - Grupo 1 :flower_playing_cards:
+# Laboratorio TBD entrega 2 - Grupo 1 :flower_playing_cards:
 
 ## El proyecto se divide en dos carpetas principales
 * Frontend: Carpeta que corresponde a la vista del proyecto desarrollada con  Vue.js y Nux.
